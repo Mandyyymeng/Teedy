@@ -23,7 +23,7 @@ pipeline {
         }
 
         stage('test report'){
-         steps {
+           steps {
                         bat 'mvn test'
                     }
                     post {
@@ -33,6 +33,7 @@ pipeline {
                     }
         }
     }
+
     post {
         always {
             archiveArtifacts artifacts: '**\\target\\site\\**', fingerprint: true
@@ -40,5 +41,6 @@ pipeline {
             archiveArtifacts artifacts: '**\\target\\**\\*.war', fingerprint: true
         }
     }
+
 }
 
