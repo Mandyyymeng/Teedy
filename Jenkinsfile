@@ -3,14 +3,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'mvn -B -DskipTests clean package'
+                bat 'mvn -B -DskipTests clean package -X'
             }
         }
         stage('Doc'){
              steps {
-                bat 'mvn javadoc:jar'
+                bat 'mvn javadoc:jar -X'
              }
-             
         }
 
         stage('pmd') {
