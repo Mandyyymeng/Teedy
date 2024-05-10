@@ -7,6 +7,12 @@ pipeline {
             }
         }
 
+        stage('Doc'){
+             steps {
+                bat 'mvn javadoc:jar'
+             }
+
+        }
 
         stage('pmd') {
             steps {
@@ -24,7 +30,6 @@ pipeline {
                         }
                     }
         }
-        
     }
 
     post {
