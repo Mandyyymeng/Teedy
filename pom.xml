@@ -82,6 +82,14 @@
     </repository>
   </repositories>
 
+  <pluginRepositories>
+    <pluginRepository>
+      <id>central</id>
+      <url>http://host:port/content/groups/public</url>
+    </pluginRepository>
+  </pluginRepositories>
+
+
   <build>
     <plugins>
       <plugin>
