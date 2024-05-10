@@ -3,12 +3,16 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'mvn -B -DskipTests clean package -X'
+                bat 'mvn -B -DskipTests clean package'
             }
         }
         stage('Doc'){
              steps {
-                bat 'mvn javadoc:jar -X'
+                bat 'mvn javadoc:jar'
+             }
+             post {always {
+                archiveArtifacts artifacts: '**\\target\\site\\apidocs\\**', fingerprint: true
+                }
              }
         }
 
