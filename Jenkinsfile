@@ -10,10 +10,7 @@ pipeline {
              steps {
                 bat 'mvn javadoc:jar'
              }
-             post {always {
-                archiveArtifacts artifacts: '**\\target\\site\\apidocs\\**', fingerprint: true
-                }
-             }
+             
         }
 
         stage('pmd') {
