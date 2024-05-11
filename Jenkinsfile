@@ -11,7 +11,6 @@ pipeline {
              steps {
                 bat 'mvn javadoc:jar'
              }
-
         }
 
         stage('pmd') {
