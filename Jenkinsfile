@@ -6,29 +6,11 @@ pipeline {
                 bat 'mvn -B -DskipTests clean package'
             }
         }
-
-        stage('Doc'){
-             steps {
-                bat 'mvn javadoc:javadoc --fail-never'
-             }
-        }
-
-        stage('pmd') {
+        stage('K8s') {
             steps {
-                bat 'mvn pmd:pmd'
+                bat 'kubectl set image deployments/hello-node container-name=myteedy05'
             }
-        }
-
-        stage('test report'){
-           steps {
-                        bat 'mvn test'
-                    }
-                    post {
-                        always {
-                            junit '**\\target\\surefire-reports\\*.xml'
-                        }
-                    }
-        }
+         }
     }
 
     post {

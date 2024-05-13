@@ -1,0 +1,22 @@
+        stage('Doc'){
+             steps {
+                bat 'mvn javadoc:javadoc --fail-never'
+             }
+        }
+
+        stage('pmd') {
+            steps {
+                bat 'mvn pmd:pmd'
+            }
+        }
+
+        stage('test report'){
+           steps {
+                        bat 'mvn test'
+                    }
+                    post {
+                        always {
+                            junit '**\\target\\surefire-reports\\*.xml'
+                        }
+                    }
+        }
