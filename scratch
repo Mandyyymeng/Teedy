@@ -1,4 +1,10 @@
-        stage('Doc'){
+stage('Build') {
+            steps {
+                bat 'mvn -B -DskipTests clean package'
+            }
+        }
+
+stage('Doc'){
              steps {
                 bat 'mvn javadoc:javadoc --fail-never'
              }
