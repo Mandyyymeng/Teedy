@@ -8,7 +8,7 @@ pipeline {
         }
         stage('K8s') {
             steps {
-                bat 'kubectl set image deployments/hello-node hello-node-5dd5dcf7b4=myteedy05:latest'
+                bat 'kubectl set image deployments/hello-node docs=myteedy05:latest'
             }
          }
     }
